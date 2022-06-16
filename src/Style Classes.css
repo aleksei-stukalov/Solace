@@ -9,3 +9,12 @@
 .upper{
     z-index: 1;
 }
+
+.center{
+    text-align: center;
+    justify-content: center;
+}
+
+.LowerPadding{
+    padding-bottom: 10px;
+}
