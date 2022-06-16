@@ -21,7 +21,6 @@ export default function Greeting() {
       clearInterval(updateInterval)
     })
   }, []);
-
   const greeting = greetings(hour, name);
   return <div id="greeting">{greeting}</div>;
 }
@@ -40,7 +39,7 @@ function greetings(time, name) {
     "Good Evening",
     "Good Night",
   ];
-  if (currentHour > 0 && currentHour < 8) {
+  if (currentHour >= 0 && currentHour < 8) {
     return greetings[0] + ", " + name;
   } else if (currentHour >= 8 && currentHour <= 12) {
     return greetings[1] + ", " + name;
