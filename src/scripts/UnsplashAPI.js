@@ -1,5 +1,7 @@
 import settings from "../settings.json";
+import defaultIMG from "../assets/wallpapers/dofpurple.jpg";
 // TODO Cache 10 images in advance for unsplash, to then load faster
+
 export const fetchImage = async () => {
   let img;
   try {
@@ -9,13 +11,14 @@ export const fetchImage = async () => {
       method: "GET",
       Authorization: `Client-ID ${settings.APIKEYS.unsplashAPI}`,
     });
-    params.set("count", "10");
+
+    // params.set("count", "10");
     params.set("collections", "1053828");
     params.set("orientation", "landscape");
 
     const res = await fetch(`${url}?${params}`, { headers, cache: "no-cache" });
     const body = await res.json();
-    return (img = {
+    img = {
       src: body.urls.raw,
       credit: {
         imageLink: body.links.html,
@@ -23,15 +26,30 @@ export const fetchImage = async () => {
         userName: body.user.name,
         userLink: body.user.links.html,
       },
-    });
+    };
   } catch (err) {
-    img = null;
     console.log(err);
+    img = 1;
   }
   return img;
 };
 
-export function calculateWidth(screenWidth = 1920, pixelRatio = 1) {
+export function buildLink(link) {
+  console.log({link})
+  if (link === 1 || link == null) {
+    return defaultIMG;
+  } else {
+    const url = new URL(link);
+    url.searchParams.set("q", "85");
+    url.searchParams.set(
+      "w",
+      calculateWidth(window.innerWidth, window.devicePixelRatio)
+    );
+    return url;
+  }
+}
+
+function calculateWidth(screenWidth = 1920, pixelRatio = 1) {
   // Consider a minimum resolution too
   screenWidth = screenWidth * pixelRatio; // Find true resolution
   screenWidth = Math.max(screenWidth, 1920); // Lower limit at 1920

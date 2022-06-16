@@ -1,36 +1,26 @@
-import React from "react";
-import {fetchImage} from "../scripts/UnsplashAPI.js";
+import { useEffect, useState } from "react";
+import { fetchImage, buildLink } from "../scripts/UnsplashAPI";
+
 export default function Background() {
-  const [img, setImg] = React.useState(
-    require("../assets/wallpapers/dofpurple.jpg")
-  );
+  const [img, setImg] = useState(1);
 
-  React.useEffect(() => {});
-
+  useEffect(() => {
+    if (img === 1) {
+      setImg({
+        src: 1,
+      });
+    }
+  }, [img]);
   return (
     <div
       onClick={() => {
-        console.log(fetchImage())
-      }}>
-      <img src={img} id="backgroundIMG" alt="" />
+        fetchImage().then((data) => {
+          setImg(data);
+          console.log(data);
+        });
+      }}
+    >
+      <img src={buildLink(img.src)} id="backgroundIMG" className="fullscreen" alt="" />
     </div>
   );
 }
-
-// const fetchIMG = async () => {
-//   let imgURL;
-//   try {
-//     const unsplash = await createApi({
-//       accessKey: `${s.APIKEYS.unsplashAPI}`,
-//     });
-//     const fetchUnsplash = await unsplash.photos.getRandom({
-//       collectionIds: ['1053828'],
-//       orientation:"landscape"
-//     });
-//     imgURL = fetchUnsplash.response.urls.raw + "&q=85" + "&w=1920" + "&fit=crop" + "&fit=max";
-//   } catch (err) {
-//     imgURL = require("../assets/wallpapers/abstractdofpurple.jpg");
-//     console.log(err, "defaulting to dof purple");
-//   }
-//   return imgURL;
-// };
