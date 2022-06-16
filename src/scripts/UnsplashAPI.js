@@ -12,13 +12,12 @@ export const fetchImage = async () => {
       Authorization: `Client-ID ${settings.APIKEYS.unsplashAPI}`,
     });
 
-    // params.set("count", "10");
     params.set("collections", "1053828");
     params.set("orientation", "landscape");
 
     const res = await fetch(`${url}?${params}`, { headers, cache: "no-cache" });
     const body = await res.json();
-    img = {
+    return img = {
       src: body.urls.raw,
       credit: {
         imageLink: body.links.html,
@@ -29,15 +28,20 @@ export const fetchImage = async () => {
     };
   } catch (err) {
     console.log(err);
-    img = 1;
+    return img = 1;
   }
-  return img;
 };
 
 export function buildLink(link) {
-  console.log({link})
   if (link === 1 || link == null) {
-    return defaultIMG;
+    let newIMG;
+    fetchImage().then((data) => {
+      newIMG = data
+    })
+    if(newIMG === 1 || newIMG == null){
+      newIMG=defaultIMG;
+    }
+    return newIMG;
   } else {
     const url = new URL(link);
     url.searchParams.set("q", "85");

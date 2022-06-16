@@ -16,7 +16,6 @@ export default function Background() {
       onClick={() => {
         fetchImage().then((data) => {
           setImg(data);
-          console.log(data);
         });
       }}
     >
