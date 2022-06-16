@@ -1,29 +1,36 @@
 import settings from "../settings.json";
 
 export const fetchWeatherData = async () => {
-  const url = "https://api.openweathermap.org/data/2.5/weather";
-  const params = new URLSearchParams();
-  params.set("lat", settings.weather.latitude);
-  params.set("lon", settings.weather.longitude);
-  params.set("appid", settings.APIKEYS.weatherAPI);
-  params.set("units", settings.weather.unit);
-
-  const res = await fetch(`${url}?${params}`, { cache: "no-cache" });
-  const body = await res.json();
   let weather;
-  return (weather = {
-    city: body.name,
-    description: body.weather[0].main,
-    icon: `${body.weather[0].icon}.png`,
-    theme: settings.general.theme,
-    stats: {
-      maintemp: `${Math.round(body.main.temp)}`,
-      feels_like: `${Math.round(body.main.feels_like)}`,
-      min: `${Math.round(body.main.temp_min)}`,
-      max: `${Math.round(body.main.temp_max)}`,
-      humidity: body.main.humidity,
-    },
-  });
+  try {
+    const url = "https://api.openweathermap.org/data/2.5/weather";
+    const params = new URLSearchParams();
+    params.set("lat", settings.weather.latitude);
+    params.set("lon", settings.weather.longitude);
+    params.set("appid", settings.APIKEYS.weatherAPI);
+    params.set("units", settings.weather.unit);
+
+    const res = await fetch(`${url}?${params}`, { cache: "no-cache" });
+    const body = await res.json();
+
+    return (weather = {
+      city: body.name,
+      description: body.weather[0].main,
+      icon: `${body.weather[0].icon}.png`,
+      theme: settings.general.theme,
+      stats: {
+        maintemp: `${Math.round(body.main.temp)}`,
+        feels_like: `${Math.round(body.main.feels_like)}`,
+        min: `${Math.round(body.main.temp_min)}`,
+        max: `${Math.round(body.main.temp_max)}`,
+        humidity: body.main.humidity,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    weather = 1;
+  }
+  return weather;
 };
 
 export function weatherDisplay(data, mode) {
