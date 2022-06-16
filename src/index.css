@@ -1,6 +1,6 @@
-:root{
+/* :root{
 
-}
+} */
 
 *{
   margin: 0;
@@ -16,4 +16,8 @@ html, body {
   display: flex;
   /* align-items: center;
   justify-content: center; */
+}
+
+ul, li, ol{
+  list-style-type: none;
 }
