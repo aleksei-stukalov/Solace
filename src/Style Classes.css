@@ -1,0 +1,11 @@
+.bold{
+    font-weight: bold;
+}
+
+.lower{
+    z-index: 0;
+}
+
+.upper{
+    z-index: 1;
+}

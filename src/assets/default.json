@@ -1,0 +1,21 @@
+{
+    "WeatherDefault": {
+        "weather": [
+            {
+                "id": 0,
+                "main": "Loading...",
+                "description": "Loading...",
+                "icon": "unknown"
+            }
+        ], 
+        "main": {
+            "temp": 0,
+            "feels_like": 0,
+            "temp_min": 0,
+            "temp_max": 0,
+            "pressure": 0,
+            "humidity": 0
+        },
+        "name": "Loading..."
+    }
+}
