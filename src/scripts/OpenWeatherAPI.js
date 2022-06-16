@@ -1,6 +1,6 @@
 import settings from "../settings.json";
 
-const fetchWeatherData = async () => {
+export const fetchWeatherData = async () => {
   const url = "https://api.openweathermap.org/data/2.5/weather";
   const params = new URLSearchParams();
   params.set("lat", settings.weather.latitude);
@@ -10,64 +10,57 @@ const fetchWeatherData = async () => {
 
   const res = await fetch(`${url}?${params}`, { cache: "no-cache" });
   const body = await res.json();
-
+  let weather;
   return (weather = {
     city: body.name,
     description: body.weather[0].main,
     icon: `${body.weather[0].icon}.png`,
     theme: settings.general.theme,
     stats: {
-      maintemp: body.main.temp,
-      feels_like: body.main.feels_like,
-      min: body.main.tem_min,
-      max: body.main.temp_max,
+      maintemp: `${Math.round(body.main.temp)}`,
+      feels_like: `${Math.round(body.main.feels_like)}`,
+      min: `${Math.round(body.main.temp_min)}`,
+      max: `${Math.round(body.main.temp_max)}`,
       humidity: body.main.humidity,
     },
   });
 };
 
-function weatherDisplay(data, mode) {
+export function weatherDisplay(data, mode) {
   const celsius = Math.round(data.stats.maintemp);
+  return (
+    <div id="weather">
+      <span id="weatherName">{data.city} </span>
+      <img
+        src={require(`../assets/${data.theme}/${data.icon}`)}
+        id="weatherImg"
+        alt=""
+      />
+      <span id="weatherTemp"> {celsius}°</span>
+      {weatherDetail(data, mode)}
+    </div>
+  );
+}
+
+function weatherDetail(data, mode) {
   if (mode === "detailed") {
     return (
-      <div>
-        <span id="weatherName">{data.city} </span>
-        <img
-          src={require(`../assets/${data.theme}/${data.icon}`)}
-          id="weatherImg"
-          alt=""
-        />
-        <span id="weatherTemp"> {celsius}°</span>
-        <li id="weatherDescription">{data.description}</li>
-        <span id="weatherDetailed">
-          <li id="weatherFeels">
-            Feels Like:{" "}
-            <span className="bold">{Math.round(data.stats.feels_like)}° </span>
-          </li>
-          <li id="weatherHumidity">
-            Humidity: <span className="bold">{data.stats.humidity}%</span>{" "}
-          </li>
-          <li>
-            Min: <span className="bold">{Math.round(data.stats.min)}°</span>
-          </li>
-          <li>
-            Max: <span className="bold">{Math.round(data.stats.max)}°</span>
-          </li>
-        </span>
-      </div>
-    );
-  } else {
-    return (
-      <div id="weather">
-        <span id="weatherName">{data.city} </span>
-        <img
-          src={require(`../assets/${data.theme}/${data.icon}`)}
-          id="weatherImg"
-        />
-        <span id="weatherTemp"> {celsius}°</span>
+      <div id="weatherDetail">
+        <li id="weatherDescription" className="center LowerPadding">
+          {data.description}
+        </li>
+        <li className="bold center">{data.stats.max}°</li>
+        <li className="center LowerPadding">Max</li>
+        <li className="bold center">{data.stats.min}°</li>
+        <li className="center LowerPadding">Min</li>
+        <li className="bold center">{data.stats.feels_like}°</li>
+        <li className="center LowerPadding">Feels Like</li>
+        <li className="bold center">{data.stats.humidity}%</li>
+        <li className="center">Humidity</li>
       </div>
     );
   }
 }
 
 //TODO Add Geocoding functions
+//TODO Add Weather API Error Response Handling
