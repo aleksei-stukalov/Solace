@@ -1,5 +1,16 @@
+/**
+ * @file Library of OpenWeather Based API functions for fetching and displaying
+ * Weather Data from OpenWeather
+ */
+
 import settings from "../settings.json";
 
+/**
+ * @description Fetches Weather Data from API, Processes the data to usable format
+ * and returns it.
+ * @returns Processed Weather Data
+ * @err Returns 1
+ */
 export const fetchWeatherData = async () => {
   let weather;
   try {
@@ -33,17 +44,26 @@ export const fetchWeatherData = async () => {
   return weather;
 };
 
+/**
+ * @description Takes in Weather JSON data and displays it on page as either simple
+ * or detailed output depending on mode input
+ * @param {JSON} data Converted JSON returned with fetchWeather Function
+ * @param {String} mode Display Mode for function
+ * @returns Displays styled weather on page
+ */
 export function weatherDisplay(data, mode) {
   const celsius = Math.round(data.stats.maintemp);
   return (
-    <div id="weather">
-      <span id="weatherName">{data.city} </span>
-      <img
-        src={require(`../assets/${data.theme}/${data.icon}`)}
-        id="weatherImg"
-        alt=""
-      />
-      <span id="weatherTemp"> {celsius}°</span>
+    <div>
+      <span id="weatherSimple">
+        <span id="weatherName">{data.city} </span>
+        <img
+          src={require(`../assets/${data.theme}/${data.icon}`)}
+          id="weatherImg"
+          alt=""
+        />
+        <span id="weatherTemp"> {celsius}°</span>
+      </span>
       {weatherDetail(data, mode)}
     </div>
   );

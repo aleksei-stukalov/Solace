@@ -1,15 +1,18 @@
-import React from "react";
+import {useEffect, useState} from "react";
+
+import settings from "../settings.json"
 import { callIntervalImmediately } from "../scripts/Helpers";
 
 /**
  * @description Greeting component to greet user depending on time of day
- * @param {string} name Configured name to greet user
  */
-export default function Greeting(props) {
-  const name = props.name;
-  const [hour, setHour] = React.useState(new Date());
+export default function Greeting() {
+  const name = settings.general.name;
+  const [hour, setHour] = useState(new Date());
 
-  React.useEffect(() => {
+  // Updates Greeting Every Half an hour
+  //TODO Attach Interval to Global Timer
+  useEffect(() => {
     const updateInterval = callIntervalImmediately(() => {
       setHour(new Date());
     }, 60 * 30 * 1000);

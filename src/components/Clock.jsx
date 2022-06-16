@@ -1,5 +1,7 @@
-import React from 'react';
+import { useEffect, useState } from "react";
+
 import { callIntervalImmediately } from "../scripts/Helpers";
+
 /**
  * @description Configurable clock that shows time and date in 12 and 24 hour format and numerical and textual date formats
  * @param timeFormat 12 | 24
@@ -9,9 +11,10 @@ export default function Clock(props) {
   const timeFormat = props.timeFormat;
   const dateFormat = props.dateFormat;
 
-  const [time, setTime] = React.useState(new Date());
+  const [time, setTime] = useState(new Date());
 
-  React.useEffect(() => {
+
+  useEffect(() => {
     const updateInterval = callIntervalImmediately(() => {
       setTime(new Date());
     },1000);

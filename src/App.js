@@ -1,15 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Loading Logos Import
+// TODO Implement Loading Logo or remove from Application
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+// Page Imports
 import Home from "./pages/Home";
-import About from "./pages/About"
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

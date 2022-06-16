@@ -1,24 +1,15 @@
+/**
+ * @file Library of functions that to assist in general application function
+ */
+
+/**
+ * @description Calls passed function immediately and then runs it on loop
+ * executing as per the specified delay param
+ * @param {Function} fn Function to execute
+ * @param {Int} delay Time before executing function again.
+ * @returns Value for clearinterval to call when clearing this function
+ */
 export function callIntervalImmediately(fn, delay) {
   fn();
   return setInterval(fn, delay);
-}
-
-export function cache(arr, type) {
-  if (!cache.list) {
-    cache.list = [];
-  }
-  let list = cache.list;
-  if (type === "image") {
-    for (let i = 0; i < arr.length; i++) {
-      let img = new Image();
-      img.onload = function () {
-        let index = list.indexOf(this);
-        if (index !== -1) {
-          list.splice(index, 1);
-        }
-      };
-      list.push(img);
-      img.src = arr[i];
-    }
-  }
 }

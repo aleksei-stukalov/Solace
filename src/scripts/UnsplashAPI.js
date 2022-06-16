@@ -1,7 +1,15 @@
+/**
+ * @file Library of Functions for fetching unsplash photos using the unsplash API
+ */
+
 import settings from "../settings.json";
 import defaultIMG from "../assets/wallpapers/dofpurple.jpg";
-// TODO Cache 10 images in advance for unsplash, to then load faster
 
+/**
+ * @description Fetches Random Image from Unsplash, processes relevant data
+ * and returns it
+ * @returns {JSON} Processed Unsplash Data Json
+ */
 export const fetchImage = async () => {
   let img;
   try {
@@ -17,7 +25,7 @@ export const fetchImage = async () => {
 
     const res = await fetch(`${url}?${params}`, { headers, cache: "no-cache" });
     const body = await res.json();
-    return img = {
+    return (img = {
       src: body.urls.raw,
       credit: {
         imageLink: body.links.html,
@@ -25,21 +33,28 @@ export const fetchImage = async () => {
         userName: body.user.name,
         userLink: body.user.links.html,
       },
-    };
+    });
   } catch (err) {
     console.log(err);
-    return img = 1;
+    return (img = 1);
   }
 };
 
+//TODO Builds Image Link to load onto background page (Returns Optimized Image URL)
+/**
+ * @description Function to take Unsplash Image URL, Add in parameters to the URL
+ * and return it so that calling the URL returns an optimized image from Unsplash
+ * @param {String} link Link / URL to Unsplash Image
+ * @returns Link with additional parameters added so that an Optimized Image is returned
+ */
 export function buildLink(link) {
   if (link === 1 || link == null) {
     let newIMG;
     fetchImage().then((data) => {
-      newIMG = data
-    })
-    if(newIMG === 1 || newIMG == null){
-      newIMG=defaultIMG;
+      newIMG = data;
+    });
+    if (newIMG === 1 || newIMG == null) {
+      newIMG = defaultIMG;
     }
     return newIMG;
   } else {
@@ -53,6 +68,12 @@ export function buildLink(link) {
   }
 }
 
+/**
+ * @description Calculates Screen Width
+ * @param {Int} screenWidth Width of Screen / Window
+ * @param {Int} pixelRatio Pixel Ration of Screen / Window
+ * @returns Width of Screen after some processing.
+ */
 function calculateWidth(screenWidth = 1920, pixelRatio = 1) {
   // Consider a minimum resolution too
   screenWidth = screenWidth * pixelRatio; // Find true resolution
@@ -61,3 +82,5 @@ function calculateWidth(screenWidth = 1920, pixelRatio = 1) {
   screenWidth = Math.ceil(screenWidth / 240) * 240; // Snap up to nearest 240px for improved caching
   return screenWidth;
 }
+
+//TODO Add Proper API response Error Handling

@@ -1,14 +1,11 @@
-/* :root{
-
-} */
-
+/* General Pre-Styling to make code behave more as expected */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html,
-body {
+
+html, body {
   overflow: hidden;
   margin: 0;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
@@ -17,13 +14,11 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
 }
 
-ul,
-li,
-ol {
+
+ul, li, ol {
+  /* Removed List Styling */
   list-style-type: none;
 }
 
@@ -32,6 +27,7 @@ a {
   cursor: pointer;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }

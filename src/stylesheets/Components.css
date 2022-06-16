@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;400;700&display=swap");
 
+/* Home Page Styling */
+#homeTxt {
+  position: relative;
+}
+/*--------------------*/
+
 /* Clock Component */
 #clockTime {
   text-align: left;
@@ -14,12 +20,16 @@
 
 /*------------*/
 
+/* Greeting Component */
 #greeting {
   font-family: "Noto Sans", sans-serif;
   font-weight: bold;
   font-size: 48px;
 }
 
+/*------------------*/
+
+/* Weather Component */
 #weather {
   display: inline-block;
   user-select: none;
@@ -27,10 +37,6 @@
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
-}
-
-#weather:hover {
-  cursor: pointer;
 }
 
 #weatherName {
@@ -59,17 +65,20 @@
   font-size: 30px;
 }
 
+#weatherSimple:hover {
+  cursor: pointer;
+}
+
 #weatherDetail {
   font-size: inherit;
   font-family: "Noto Sans", sans-serif;
-  
 }
 
+/*-------------------*/
+
+/* Background Component */
 #backgroundIMG {
   opacity: 0.8;
   object-fit: cover;
 }
-
-#homeTxt {
-  position: relative;
-}
+/*--------------*/
