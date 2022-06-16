@@ -2,14 +2,17 @@
 
 } */
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
+  overflow: hidden;
   margin: 0;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.25;
   width: 100vw;
   height: 100vh;
@@ -18,6 +21,17 @@ html, body {
   justify-content: center; */
 }
 
-ul, li, ol{
+ul,
+li,
+ol {
   list-style-type: none;
+}
+
+a {
+  color: #3498db;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
