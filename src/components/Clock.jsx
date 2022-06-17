@@ -76,6 +76,7 @@ function dateParse(time, format) {
     "Wednesday",
     "Thursday",
     "Friday",
+    "Saturday"
   ];
   const months = [
     "January",
