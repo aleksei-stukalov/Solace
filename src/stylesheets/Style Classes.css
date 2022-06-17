@@ -1,32 +1,41 @@
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }
 
-.lower{
-    z-index: 0;
+.lower {
+  z-index: 0;
 }
 
-.upper{
-    z-index: 1;
+.upper {
+  z-index: 1;
 }
 
-.center{
-    text-align: center;
-    justify-content: center;
+.center {
+  text-align: center;
+  justify-content: center;
 }
 
-.cursorHover{
-    cursor:pointer;
+.cursorHover {
+  cursor: pointer;
 }
 
-.LowerPadding{
-    padding-bottom: 10px;
+.LowerPadding {
+  padding-bottom: 10px;
+}
+
+.noselect {
+  display: inline-block;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 .fullscreen {
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
