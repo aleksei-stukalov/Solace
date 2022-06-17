@@ -30,15 +30,6 @@
 /*------------------*/
 
 /* Weather Component */
-#weather {
-  display: inline-block;
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-}
-
 #weatherName {
   font-weight: bold;
   font-family: "Noto Sans", sans-serif;
