@@ -2,6 +2,7 @@
  * @file Library of OpenWeather Based API functions for fetching and displaying
  * Weather Data from OpenWeather
  */
+import React from "react";
 
 import settings from "../settings.json";
 
@@ -51,11 +52,23 @@ export const fetchWeatherData = async () => {
  * @param {String} mode Display Mode for function
  * @returns Displays styled weather on page
  */
-export function weatherDisplay(data, mode) {
+export function WeatherDisplay(props) {
+  let data = props.data;
+  const [display, setDisplay] = React.useState("simple");
   const celsius = Math.round(data.stats.maintemp);
+
   return (
     <div>
-      <span id="weatherSimple">
+      <span
+        id="weatherSimple"
+        onClick={() => {
+          if (display === "simple") {
+            setDisplay("detailed");
+          } else {
+            setDisplay("simple");
+          }
+        }}
+      >
         <span id="weatherName">{data.city} </span>
         <img
           src={require(`../assets/${data.theme}/${data.icon}`)}
@@ -64,7 +77,7 @@ export function weatherDisplay(data, mode) {
         />
         <span id="weatherTemp"> {celsius}°</span>
       </span>
-      {weatherDetail(data, mode)}
+      {weatherDetail(data, display)}
     </div>
   );
 }
