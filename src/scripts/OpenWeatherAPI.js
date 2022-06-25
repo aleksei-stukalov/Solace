@@ -19,8 +19,8 @@ export const fetchWeatherData = async () => {
     const params = new URLSearchParams();
     params.set("lat", settings.weather.latitude);
     params.set("lon", settings.weather.longitude);
-    params.set("appid", settings.APIKEYS.weatherAPI);
     params.set("units", settings.weather.unit);
+    params.set("appid", settings.APIKEYS.weatherAPI);
 
     const res = await fetch(`${url}?${params}`, { cache: "no-cache" });
     const body = await res.json();
