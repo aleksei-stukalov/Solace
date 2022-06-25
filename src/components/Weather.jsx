@@ -18,9 +18,10 @@ export default function Weather() {
   /**
    * Fetch Weather Data API Caller
    */
+
+
   //TODO Attach Interval to Global Timer
   //TODO Verify Data Parsing is correct
-
   useEffect(() => {
     const updateInterval = callIntervalImmediately(() => {
       fetchWeatherData().then((data) => {
