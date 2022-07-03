@@ -1,0 +1,15 @@
+{
+    "general":{
+        "name":"John",
+        "theme":"White"
+    },
+    "APIKEYS":{
+        "weatherAPI":"",
+        "unsplashAPI":""
+    },
+    "weather":{
+        "latitude":"",
+        "longitude":"",
+        "unit":"metric"
+    }
+}
