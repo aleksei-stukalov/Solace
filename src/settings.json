@@ -1,0 +1,15 @@
+{
+    "general":{
+        "name":"Michael"
+    },
+    "APIKEYS":{
+        "weatherAPI":"",
+        "unsplashAPI":""
+    },
+    "weather":{
+        "latitude":"-27.4679",
+        "longitude":"153.0281",
+        "unit":"metric"
+    }
+}
+//weather.unit OPTIONS: metric, imperial, standard

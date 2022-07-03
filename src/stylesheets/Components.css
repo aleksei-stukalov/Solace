@@ -30,6 +30,7 @@
 /*------------------*/
 
 /* Weather Component */
+/*TODO Style Weather Icon to be always center regardless of icon used*/
 #weatherName {
   font-weight: bold;
   font-family: "Noto Sans", sans-serif;
