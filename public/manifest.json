@@ -1,15 +1,20 @@
 {
-  "short_name": "Solace",
+  "manifest_version": 2,
   "name": "Solace Homepage Application",
-  "icons": [
-    {
-      "src": "manicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "short_name": "Solace",
+  "version": "0.1.1a",
+  "description": "New Tab Addon designed for fun and flex",
+  "chrome_settings_overrides": {
+    "homepage": "index.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "96": "icons/96.png",
+    "128": "icons/128.png"
+  },
+  "permissions": ["storage"]
 }

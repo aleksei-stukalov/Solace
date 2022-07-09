@@ -1,7 +1,19 @@
 {
   "name": "solace",
-  "version": "0.1.0",
+  "version": "0.1.1a",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "build": "react-scripts build",
+    "dev": "react-scripts dev",
+    "eject": "react-scripts eject",
+    "build:firefox": "NODE_ENV=production BUILD_TARGET=firefox webpack",
+    "build:web": "NODE_ENV=production BUILD_TARGET=web webpack",
+    "dev:chromium": "BUILD_TARGET=chromium webpack --watch",
+    "dev:firefox": "BUILD_TARGET=firefox webpack --watch",
+    "dev:web": "BUILD_TARGET=web webpack serve"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -12,12 +24,6 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

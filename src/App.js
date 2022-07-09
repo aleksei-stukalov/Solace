@@ -10,11 +10,17 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+    <>
+      This is a test
+    </>
+
+    // This code is commented out because is no longer needed.
+    //
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //   </Routes>
+    // </Router>
   );
 }
 
