@@ -8,7 +8,7 @@ import { fetchImage, buildLink } from "../scripts/UnsplashAPI";
  */
 export default function Background() {
   const [img, setImg] = useState(1);
-  
+
   //TODO Rewrite this useEffect once Error handling as been implemented.
   useEffect(() => {
     if (img === 1) {
