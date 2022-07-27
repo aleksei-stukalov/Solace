@@ -19,11 +19,6 @@ function App() {
       <Menu />
       <Background />
       <Content />
-      {/* <span id="homeTxt">
-        <Greeting />
-        <Clock timeFormat="24" dateFormat="textual" />
-        <Weather />
-        </span> */}
     </>
   );
 }
