@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;400;700&display=swap");
+
+@import url("./App.css");
+@import url("./Menu.css");
+@import url("./Content.css");
+@import url("./Background.css");
+
+
+/* Clock Component */
+#clockTime {
+  text-align: left;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 48px;
+}
+
+#clockDate {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 32px;
+}
+
+/*------------*/
+
+/* Greeting Component */
+#greeting {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+}
+
+/*------------------*/
+
+/* Weather Component */
+/*TODO Style Weather Icon to be always center regardless of icon used*/
+#weatherName {
+  font-weight: bold;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 48px;
+}
+
+#weatherImg {
+  width: 60px;
+  height: 60px;
+  vertical-align: bottom;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 7.5px;
+}
+
+#weatherTemp {
+  font-weight: bold;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 48px;
+}
+
+#weatherDescription {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#weatherSimple:hover {
+  cursor: pointer;
+}
+
+#weatherDetail {
+  font-size: inherit;
+  font-family: "Noto Sans", sans-serif;
+}
+
+/*-------------------*/
+
+/* Background Component */
+#backgroundIMG {
+  z-index: -10;
+  position: fixed;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none
+}
+
+/*--------------*/
