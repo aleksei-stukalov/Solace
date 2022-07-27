@@ -1,0 +1,24 @@
+/* Navigation Menu */
+nav {
+    position: fixed;
+    z-index: 10;
+}
+
+nav button {
+    --button-size: 2.6rem;
+
+    width: var(--button-size);
+    height: var(--button-size);
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: .7;
+    transition: .2s;
+}
+
+nav button:hover {
+    opacity: 1;
+}
+
+
+/*--------------*/
