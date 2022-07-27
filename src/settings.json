@@ -1,15 +1,105 @@
 {
-    "general":{
-        "name":"John",
-        "theme":"White"
+    "general": {
+        "id": "settingsgeneral",
+        "name": "John",
+        "theme": "White"
     },
-    "APIKEYS":{
-        "weatherAPI":"",
-        "unsplashAPI":""
+    "APIKEYS": {
+        "id": "settingsapikeys",
+        "weatherAPI": "",
+        "unsplashAPI": ""
     },
-    "weather":{
-        "latitude":"",
-        "longitude":"",
-        "unit":"metric"
-    }
+    "weather": {
+        "id": "settingsweather",
+        "latitude": "",
+        "longitude": "",
+        "unit": "metric"
+    },
+    "areas": [
+        {
+            "id": "top_left",
+            "anchor": "bottomleft",
+            "content": [
+                {
+                    "id": "testedid001",
+                    "type": "textfield",
+                    "value": "Good Morning, <name>!",
+                    "styles": {
+                        "size": "large",
+                        "weight": "bold"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "bottom_left",
+            "content": [
+                {
+                    "id": "testedid003",
+                    "type": "textfield",
+                    "value": "<time:24>",
+                    "styles": {
+                        "size": "large"
+                    }
+                },
+                {
+                    "id": "testedid004",
+                    "type": "textfield",
+                    "value": "<date:simple>"
+                },
+                {
+                    "id": "testedid0015",
+                    "type": "plugin",
+                    "value": "spotify"
+                }
+            ]
+        },
+        {
+            "id": "top",
+            "content": []
+        },
+        {
+            "id": "center",
+            "content": []
+        },
+        {
+            "id": "bottom",
+            "content": []
+        },
+        {
+            "id": "top_right",
+            "content": [
+                {
+                    "id": "testedid0011",
+                    "type": "textfield",
+                    "value": "<town><weather:icon><temp:cel>"
+                },
+                {
+                    "id": "testedid012",
+                    "type": "textfield",
+                    "value": "<tempfl:cel><br>Feels Like"
+                },
+                {
+                    "id": "testedid016",
+                    "type": "textfield",
+                    "value": "<weather:rainchance><br>Chance of Rain"
+                }
+            ]
+        },
+        {
+            "id": "bottom_right",
+            "content": [
+                {
+                    "id": "testedid013",
+                    "type": "textfield",
+                    "value": "Bookmarks"
+                },
+                {
+                    "id": "testedid014",
+                    "type": "textfield",
+                    "value": "Spotify<br>Youtube<br>Github"
+                }
+            ]
+        }
+    ]
 }
