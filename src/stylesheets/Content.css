@@ -89,3 +89,10 @@
     color: red;
     background-color: black;
 }
+
+/* Greeting Component */
+#greeting {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+}

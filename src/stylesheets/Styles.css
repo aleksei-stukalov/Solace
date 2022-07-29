@@ -4,7 +4,6 @@
 @import url("./Content.css");
 @import url("./Background.css");
 
-
 /* Clock Component */
 #clockTime {
   text-align: left;
@@ -18,13 +17,6 @@
 }
 
 /*------------*/
-
-/* Greeting Component */
-#greeting {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: bold;
-  font-size: 48px;
-}
 
 /*------------------*/
 

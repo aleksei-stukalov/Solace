@@ -4,12 +4,7 @@ import { useEffect, useState } from "react";
  * @description Greeting component to greet user depending on time of day
  */
 export default function TextField({ value }, { styles }) {
-  //  ErrorHandles needs to be rewritten in its own component
-  const ErrorHandler = (passedMessage) => {
-    return console.log(passedMessage);
-  };
-
-  return <p id="textfield-greeting">{value}</p>;
+  return <p id="textfield">{value}</p>;
 }
 
 /**
