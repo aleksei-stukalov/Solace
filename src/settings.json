@@ -68,6 +68,7 @@
         },
         {
             "id": "top_right",
+            "anchor": "topright",
             "content": [
                 {
                     "id": "testedid0011",
