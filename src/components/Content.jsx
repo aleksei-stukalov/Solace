@@ -27,7 +27,7 @@ const drawArea = (area) => {
       plugin: <p>This is a placeholder for a plugin "{block.value}"</p>,
     };
 
-    return blockRouter[block.type] || ErrorHandler();
+    return blockRouter[block.type] || ErrorHandler("Content", "areaContent");
   });
 
   return (
