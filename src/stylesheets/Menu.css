@@ -1,46 +1,42 @@
 .hidden {
-    left: -26rem;
+    width: 0;
 }
 
 .displayed {
-    left: 0;
+    width: 500px;
 }
 
 nav {
-    position: fixed;
+    --button-size: 2.6rem;
+
+    position: relative;
     z-index: 10;
 
     display: flex;
-    justify-content: start;
-    align-items: flex-end;
     flex-direction: column;
-
-    width: 26rem;
-    height: 100vh;
+    justify-content: start;
 
     transition: .2s ease-in-out;
+    background-color: grey;
+
 }
 
 nav button {
-    --button-size: 2.6rem;
-
     width: var(--button-size);
     height: var(--button-size);
+
     border: none;
-    cursor: pointer;
     background: none;
+
+    cursor: pointer;
 
     transition: .2s ease-in-out;
     opacity: .7;
 }
 
-nav button:hover {
-    opacity: 1;
-}
-
 .hidden button {
     background-image: url(../../public/icons/svg/cog.svg);
-    transform: translateX(100%);
+    transform: translateX(0);
 }
 
 .displayed button {
@@ -48,9 +44,22 @@ nav button:hover {
     transform: translateX(0);
 }
 
-nav #menu {
+nav button:hover {
+    opacity: 1;
+}
+
+
+#menu {
     width: 100%;
     height: 100%;
 
-    background-color: white;
+    padding-top: .5rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#menu > li {
+    padding: .5rem 2rem;
+
 }
