@@ -11,7 +11,7 @@ import { useState } from "react";
 // [ ] Think of a better styles structure
 
 export default function Menu() {
-  const [hide, toggleHide] = useState(false);
+  const [hide, toggleHide] = useState(true);
   let menuAppearance = hide == true ? "hidden" : "displayed";
 
   return (
