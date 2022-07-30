@@ -1,6 +1,15 @@
 import React from "react";
 import { useState } from "react";
 
+//  Today
+// [X] Make a layout for the menu
+
+//  Later
+// [ ] Figure out how to structure the data for the settings
+// [ ] Make a custom scroll but for settings element
+// [ ] Rework menu css that it moves the content to the right when opened.
+// [ ] Think of a better styles structure
+
 export default function Menu() {
   const [hide, toggleHide] = useState(false);
   let menuAppearance = hide == true ? "hidden" : "displayed";
