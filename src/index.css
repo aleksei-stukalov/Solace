@@ -29,6 +29,7 @@ body {
 html, body {
   font-family:
     -apple-system,
+    "Noto Sans",
     system-ui,
     BlinkMacSystemFont,
     "Segoe UI",
@@ -37,6 +38,7 @@ html, body {
     Arial,
     sans-serif;
   line-height: 1.25;
+  font-weight: 200;
 }
 
 #solace {
