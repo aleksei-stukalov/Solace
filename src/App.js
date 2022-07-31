@@ -16,8 +16,8 @@ import "./stylesheets/Style Classes.css";
 function App() {
   return (
     <>
-      <Menu />
       <Background />
+      <Menu />
       <Content />
     </>
   );
