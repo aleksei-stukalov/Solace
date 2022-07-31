@@ -17,7 +17,7 @@ nav {
     justify-content: start;
 
     transition: .2s ease-in-out;
-    background-color: grey;
+    background-color: rgb(51, 51, 51);
 
 }
 
@@ -34,14 +34,24 @@ nav button {
     opacity: .7;
 }
 
-.hidden button {
-    background-image: url(../../public/icons/svg/cog.svg);
-    transform: translateX(0);
+@media (prefers-color-scheme: dark) {
+    .hidden button {
+        background-image: url(../../public/icons/svg/cog_dark.svg);
+    }
+
+    .displayed button {
+        background-image: url(../../public/icons/svg/cross_dark.svg);
+    }
 }
 
-.displayed button {
-    background-image: url(../../public/icons/svg/cross.svg);
-    transform: translateX(0);
+@media (prefers-color-scheme: light) {
+    .hidden button {
+        background-image: url(../../public/icons/svg/cog_light.svg);
+    }
+
+    .displayed button {
+        background-image: url(../../public/icons/svg/cross_light.svg);
+    }
 }
 
 nav button:hover {
@@ -49,7 +59,7 @@ nav button:hover {
 }
 
 
-#menu {
+#group-menu {
     width: 100%;
     height: 100%;
 
@@ -59,7 +69,11 @@ nav button:hover {
     overflow: hidden;
 }
 
-#menu > li {
+#group-menu > li {
     padding: .5rem 2rem;
+}
 
+#group-menu > li > h3 {
+    font-weight: 400;
+    font-size: 1.2rem;
 }
