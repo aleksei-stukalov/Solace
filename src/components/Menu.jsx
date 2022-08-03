@@ -1,26 +1,61 @@
 import React from "react";
 import { useState } from "react";
 
-//  Today
-// [X] Make a layout for the menu
+import DropDown from "./Modules/DropDown";
 
-//  Later
+//  DONE
+// [X] Make a layout for the menu
+// [X] Rework menu css that it moves the content to the right when opened.
+// [X] Think of a better styles structure
+
+//  TODO
 // [ ] Figure out how to structure the data for the settings
 // [ ] Make a custom scroll but for settings element
-// [ ] Rework menu css that it moves the content to the right when opened.
-// [ ] Think of a better styles structure
 
 export default function Menu() {
-  const [hide, toggleHide] = useState(true);
-  let menuAppearance = hide == true ? "hidden" : "displayed";
+  const [menuVisible, toggleMenu] = useState(true);
+  let menuAppearance = menuVisible == true ? "hidden" : "displayed";
 
   return (
     <nav className={menuAppearance}>
-      <button onClick={() => toggleHide(!hide)}></button>
-      <ul id="menu" className={menuAppearance}>
-        <li>Group A</li>
-        <li>Group B</li>
-        <li>Group C</li>
+      <button onClick={() => toggleMenu(!menuVisible)}></button>
+      <ul id="group-menu">
+        <li>
+          <h3>User Preferences</h3>
+          <ul>
+            <li>
+              Colour theme
+              <DropDown>
+                <div>Element A</div>
+                <div>Element B</div>
+                <div>Element C</div>
+              </DropDown>
+            </li>
+            <li>Time format</li>
+            <li>Language</li>
+            <li>Global font size</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Screen Areas</h3>
+          <ul>
+            <li>Shape</li>
+            {/* List items below are expendable tab with drop down params */}
+            <li>Top Left</li>
+            <li>Bottom Left</li>
+            <li>Top Middle</li>
+            <li>Center</li>
+            <li>Bottom Middle</li>
+            <li>Top Right</li>
+            <li>Bottom Right</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Appearance</h3>
+          <ul>
+            <li>Animation</li>
+          </ul>
+        </li>
         <li>Group D</li>
         <li>Group E</li>
       </ul>
