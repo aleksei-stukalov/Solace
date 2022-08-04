@@ -8,12 +8,16 @@ import DropDown from "./Modules/DropDown";
 // [X] Rework menu css that it moves the content to the right when opened.
 // [X] Think of a better styles structure
 
+//  TODAY
+// [ ] Make a useState object that holds menu settings data.
+
 //  TODO
 // [ ] Figure out how to structure the data for the settings
 // [ ] Make a custom scroll but for settings element
 
 export default function Menu() {
   const [menuVisible, toggleMenu] = useState(true);
+  const [menuValues, setMenuValue] = useState({});
   let menuAppearance = menuVisible == true ? "hidden" : "displayed";
 
   return (
@@ -25,11 +29,13 @@ export default function Menu() {
           <ul>
             <li>
               Colour theme
-              <DropDown>
-                <div>Element A</div>
-                <div>Element B</div>
-                <div>Element C</div>
-              </DropDown>
+              <DropDown
+                passedObject={{
+                  list: ["Default", "Dark", "Light"],
+                  selected: 0,
+                  size: "small",
+                }}
+              />
             </li>
             <li>Time format</li>
             <li>Language</li>
@@ -54,10 +60,9 @@ export default function Menu() {
           <h3>Appearance</h3>
           <ul>
             <li>Animation</li>
+            <li>Areas Animation</li>
           </ul>
         </li>
-        <li>Group D</li>
-        <li>Group E</li>
       </ul>
     </nav>
   );
