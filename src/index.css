@@ -26,7 +26,7 @@ body {
   background-color: var(--color-background);
 }
 
-html, body {
+html, body, button {
   font-family:
     -apple-system,
     "Noto Sans",
@@ -39,6 +39,11 @@ html, body {
     sans-serif;
   line-height: 1.25;
   font-weight: 200;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 #solace {
