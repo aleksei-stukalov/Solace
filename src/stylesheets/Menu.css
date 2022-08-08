@@ -80,14 +80,23 @@ nav > button:hover {
 
 .module-dropdown {
     --module-width: 12rem;
+    --module-height: 2rem;
+    --module-font: 1rem;
+    --module-amount: 300%;
 
     position: relative;
     width: var(--module-width);
+    height: var(--module-height);
 }
 
-.module-dropdown > button {
+.module-dropdown * {
+    font-size: var(--module-font);
+    transition: .2s;
+}
+
+.module-dropdown button {
     width: 100%;
-    height: 2rem;
+    height: var(--module-height);
     padding-left: 1rem;
 
     border: none;
@@ -96,28 +105,29 @@ nav > button:hover {
 
     text-align: left;
 
-    transition: .2s;
+    cursor: pointer;
 }
 
 .module-dropdown > ul {
     position: absolute;
     width: 100%;
+    height: var(--module-amount);
 
     background-color: aliceblue;
 
-    font-size: 1rem;
     font-weight: 300;
 
-    transition: .2s;
+    overflow: hidden;
 }
 
 .module-dropdown > ul > li {
-    height: 2rem;
-    padding-left: 1rem;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.module-dropdown > ul > li button {
+    background: none;
 }
 
 @media (prefers-color-scheme: dark) {
