@@ -17,8 +17,7 @@ import DropDown from "./Modules/DropDown";
 
 export default function Menu() {
   const [menuVisible, toggleMenu] = useState(true);
-  const [menuValues, setMenuValue] = useState({});
-  let menuAppearance = menuVisible == true ? "hidden" : "displayed";
+  let menuAppearance = menuVisible ? "hidden" : "displayed";
 
   return (
     <nav className={menuAppearance}>
@@ -33,7 +32,7 @@ export default function Menu() {
                 passedObject={{
                   list: ["Default", "Dark", "Light"],
                   selected: 0,
-                  size: "small",
+                  size: "medium",
                 }}
               />
             </li>
