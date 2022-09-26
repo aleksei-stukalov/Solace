@@ -4,6 +4,17 @@ import settings from "../settings.json";
 import ErrorHandler from "../scripts/ErrorHandler";
 import TextField from "./Features/TextField";
 
+//  Today
+// [X] Render of apropriate content type
+// [ ] Make styles work from the data file
+// [X] Make Anchors work from the data.
+// [X] Find out the best way to draw content
+
+//  Later
+// [X] ContentAreas being pulled from the settings.json
+// [X] Make an ErrorHandles component
+// [ ] Write a component <Plugin /> to handle all 3rd party plugins.
+
 const drawArea = (area) => {
   //  Each area has to have an anchore point. It is preset to default values,
   //  but user potentially could change it in settings.

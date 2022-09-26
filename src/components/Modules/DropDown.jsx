@@ -8,20 +8,13 @@ export default function DropDown({ passedObject }) {
   //                                      selected element.
   //    size: 'small'|'medium'|'large' .. determins width, height and the font
   //                                      size of the element.
+  const list = passedObject.list;
 
   //  TODO
   // [X] Figure out input data to this module
-  // [-] Implement children input (Not needed, since doing it different now)
   // [X] Add data property to style css variable
-
-  //  Input Data should have:
-  // Some styling (global and local). Global would be theme and such,
-  // when local is going to be some stuff passed to the component, like:
-  // width, type of child hover interaction.
-
-  //  Input elements
-  const list = passedObject.list;
-  let selected = passedObject.selected;
+  // [-] Implement children input (Not needed, since doing it different now)
+  // [ ] Implement global styling at some point
 
   //  To handle styles we gonna have an object containing all of the params to
   //  reference and set up in the code.
@@ -44,7 +37,8 @@ export default function DropDown({ passedObject }) {
   };
 
   //
-  const [isDropped, setDropped] = useState(false);
+  const [isDown, setDown] = useState(false);
+  const [selected, setSelected] = useState(passedObject.selected);
 
   //  In case no params were passed - we want application to have defaults.
   passedObject.size ??= "medium";
@@ -53,21 +47,21 @@ export default function DropDown({ passedObject }) {
     "--module-width": styler.width[passedObject.size],
     "--module-height": styler.height[passedObject.size],
     "--module-font": styler.font[passedObject.size],
-    "--module-amount": isDropped ? list.length + "00%" : 0,
+    "--module-amount": isDown ? list.length + "00%" : 0,
   };
 
   //  List items logic
   const drawElement = (element) => {
     return (
       <li>
-        <button>{element}</button>
+        <button onClick={() => console.log("test")}>{element}</button>
       </li>
     );
   };
 
   return (
-    <div className="module-dropdown" style={styles}>
-      <button onClick={() => setDropped(!isDropped)}>{list[selected]}</button>
+    <div className="dropdown" style={styles} onBlur={() => setDown(false)}>
+      <button onClick={() => setDown(!isDown)}>{list[selected]}</button>
       <ul>{list.map((item) => drawElement(item))}</ul>
     </div>
   );
